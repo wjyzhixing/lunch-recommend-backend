@@ -1,6 +1,6 @@
-import { EggPlugin } from 'egg';
+// import { EggPlugin } from 'egg';
 
-const plugin: EggPlugin = {
+const plugin = {
   // static: true,
   // nunjucks: {
   //   enable: true,

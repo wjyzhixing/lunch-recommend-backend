@@ -9,11 +9,17 @@ export default (appInfo: EggAppInfo) => {
     },
   };
 
+  config.static = {
+    prefix: '/',
+    dir: process.cwd() + '/app/public',
+  };
+
   config.mongoose = {
     client: {
       url: 'mongodb://127.0.0.1:27017/egg_article', // 你的数据库地址，egg_article是你数据库得名字
       options: {
         useNewUrlParser: true,
+        useUnifiedTopology:true
       },
     },
   };
@@ -23,6 +29,8 @@ export default (appInfo: EggAppInfo) => {
 
   // add your egg config in here
   config.middleware = [];
+
+  config.rundir = process.cwd() + '/run';
 
   // add your special config in here
   const bizConfig = {

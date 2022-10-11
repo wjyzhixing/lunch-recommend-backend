@@ -1,6 +1,7 @@
 {
-  "extends": "eslint-config-egg/typescript",
+  "extends": "eslint-config-egg",
   "parserOptions": {
-    "project": "./tsconfig.json"
+    "project": "./tsconfig.json",
+    "sourceType": "module"
   }
 }

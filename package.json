@@ -19,7 +19,8 @@
     "ci": "npm run lint && npm run cov && npm run tsc",
     "autod": "autod",
     "lint": "eslint . --ext .ts",
-    "clean": "ets clean"
+    "clean": "ets clean",
+    "build": "pkg . --targets node8-linux-x64 --out-path dist --debug"
   },
   "dependencies": {
     "egg": "^2.6.1",
@@ -36,11 +37,12 @@
     "egg-ci": "^1.8.0",
     "egg-mock": "^3.16.0",
     "eslint": "^6.7.2",
-    "eslint-config-egg": "^8.0.0",
+    "eslint-config-egg": "^12.0.0",
     "moment": "^2.29.1",
     "tslib": "^1.9.0",
     "typescript": "^3.0.0"
   },
+  "bin": "build.js",
   "engines": {
     "node": ">=8.9.0"
   },
@@ -54,6 +56,14 @@
   "eslintIgnore": [
     "coverage"
   ],
+  "pkg": {
+    "assets": [
+    "./config/*.js",
+    "./app.js",
+    "./app/**/*.js",
+    "./node_modules/nanoid/**/*.js" 
+    ]
+  },
   "author": "",
   "license": "MIT"
 }
