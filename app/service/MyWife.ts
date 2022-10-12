@@ -7,11 +7,13 @@ export default class Test extends Service {
   /**
    * 获取类型
    */
-  public async getMyWifeFood() {
+  public async getMyWifeFood(params) {
     const { ctx } = this;
     // console.log(app.mongoose.Types);
+    // const token = ctx.request.header.authorization;
     try {
       const results = await ctx.model.Food.find({
+        user: params?.user
         // Article为modal/article.js里面命名的名字
         // id: 2,
         // _id: app.mongoose.Types.ObjectId('6231b28691e2bcb857babb56'),
@@ -40,15 +42,17 @@ export default class Test extends Service {
           food: values?.food,
           times: Number(values?.times) || 0,
           love: Number(values?.love) || 5,
+          user: String(values?.user)
           // Article为modal/article.js里面命名的名字
           // id: 2,
           // _id: app.mongoose.Types.ObjectId('6231b28691e2bcb857babb56'),
         });
+        console.log(results,'111111')
         return ctx.helper.json(results);
       }
       return ctx.helper.json([], 1, '这个食物门店已存在');
     } catch (err) {
-      ctx.body = ctx.helper.json(JSON.stringify(err));
+      return ctx.helper.json(JSON.stringify(err));
     }
   }
 
@@ -89,10 +93,12 @@ export default class Test extends Service {
   /**
    * 推荐单个食物
    */
-  public async recommendMyWifeFood() {
+  public async recommendMyWifeFood(params) {
     const { ctx } = this;
     try {
-      const results = await ctx.model.Food.find({});
+      const results = await ctx.model.Food.find({
+        user: params?.user
+      });
       const res = results
         ?.map(item => {
           return {
@@ -113,12 +119,13 @@ export default class Test extends Service {
   /**
    * 获取随机食物
    */
-  public async getRandomFoodList() {
+  public async getRandomFoodList(params) {
     const { ctx } = this;
     // console.log(app.mongoose.Types);
     try {
       const results = await ctx.model.RandomType.find({
         type: 'food',
+        user: params?.user
       });
       return ctx.helper.json(results[0] || { value: '' });
     } catch (err) {
@@ -131,13 +138,28 @@ export default class Test extends Service {
   public async updateRandomFoodList(values) {
     const { ctx } = this;
     try {
-      const results = await ctx.model.RandomType.updateOne(
-        { type: 'food' },
-        {
-          value: values?.food,
-        },
-      );
-      return ctx.helper.json(results);
+      const resValue = await ctx.model.RandomType.find({
+        type: 'food',
+        user: values?.user
+      });
+      if(resValue?.length === 0) {
+        const results = await ctx.model.RandomType.create(
+          {  
+            type: 'food',
+            user: values?.user,
+            value: values?.food,
+          },
+        );
+        return ctx.helper.json(results);
+      } else {
+        const results = await ctx.model.RandomType.updateOne(
+          { type: 'food', user: values?.user },
+          {
+            value: values?.food,
+          },
+        );
+        return ctx.helper.json(results);
+      }
     } catch (err) {
       ctx.body = ctx.helper.json(JSON.stringify(err));
     }

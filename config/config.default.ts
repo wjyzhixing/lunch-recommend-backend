@@ -7,6 +7,11 @@ export default (appInfo: EggAppInfo) => {
     csrf: {
       enable: false,
     },
+    domainWhiteList: [ '*' ]
+  };
+
+  config.jwt = {
+    secret: '123456',
   };
 
   config.static = {
@@ -23,6 +28,13 @@ export default (appInfo: EggAppInfo) => {
       },
     },
   };
+
+  config.cors = {
+    origin: 'http://localhost:8000',
+    credentials: true,
+    allowMethods: 'GET,POST'
+  };
+
   // override config from framework / plugin
   // use for cookie sign key, should change to your own and keep security
   config.keys = appInfo.name + '_1647410138077_6036';

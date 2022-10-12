@@ -19,6 +19,10 @@ module.exports = (app) => {
         type: Number,
         required: true,
       },
+      user: {
+        type: String,
+        required: true,
+      }
     },
     { versionKey: false },
   );
