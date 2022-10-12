@@ -9,12 +9,11 @@ logs/
 .vscode
 *.swp
 *.lock
-*.js
+# *.js
 !.autod.conf.js
 
-app/**/*.js
 test/**/*.js
 config/**/*.js
-app/**/*.map
+# app/**/*.map
 test/**/*.map
 config/**/*.map
