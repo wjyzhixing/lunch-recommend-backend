@@ -10,7 +10,7 @@ class SendMail extends Subscription {
             type: 'all',
             // 是否禁用
             disable: false,
-            cron: '0 45 17 * * *', //每天的11点30分0秒更新
+            cron: '0 30 17 * * *', //每天的11点30分0秒更新
         }
     }
     // 定时执行的操作

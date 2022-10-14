@@ -27,13 +27,13 @@ class ToolService extends Service {
     try {
       const results = await ctx.model.User.find({});
       const resultFilt = results.filter((i) => i.email);
-      console.log(resultFilt);
+      //   console.log(resultFilt);
       let rrr: any = [];
       resultFilt.map(async (it) => {
         const results = await ctx.model.Food.find({
           user: it?.username,
         });
-        console.log(results);
+        // console.log(results);
         const res = results
           ?.map((item) => {
             return {
@@ -48,12 +48,15 @@ class ToolService extends Service {
           food: resTrue.map((i) => i.food)[rand(0, resTrue?.length)],
           email: it.email,
           user: it.username,
+          foodSecond: results.map((i) => i.food)[rand(0, results?.length)],
         });
 
         const email = it.email; // 接收者的邮箱
         const subject = '今天吃什么！！'; // 标题
-        const html = `<div><h2>要不要试试今天吃${
+        const html = `<div><h2>工作再忙也要记得吃饭！推荐您今天吃${
           resTrue.map((i) => i.food)[rand(0, resTrue?.length)] || '鸡腿'
+        }</h2><h2>不相信推荐？随机的菜品是${
+          results.map((i) => i.food)[rand(0, results?.length)]
         }</h2><div>不想吃这个？试试进入网址 http://43.143.38.230:8000/#/</div><div>`;
         // 邮件参数及内容
         const mailOptions = {
