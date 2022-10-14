@@ -21,6 +21,7 @@ class UserController extends Controller {
     const params = {
         username: ctx.request.body?.username || '',
         password: ctx.request.body?.password || '',
+        email: ctx.request.body?.email || '',
     };
     ctx.body = await ctx.service.user.registry(params);
   }

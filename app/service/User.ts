@@ -46,6 +46,7 @@ export default class User extends Service {
         // id: 2,
         // _id: app.mongoose.Types.ObjectId('6231b28691e2bcb857babb56'),
       });
+      console.log(results,'results')
       if (results?.length !== 0) {
         return ctx.helper.json('用户名已注册', 1, 'error');
       } else {
@@ -53,6 +54,7 @@ export default class User extends Service {
           await ctx.model.User.create({
             username: params?.username,
             password: params?.password,
+            email: params?.email,
             // Article为modal/article.js里面命名的名字
             // id: 2,
             // _id: app.mongoose.Types.ObjectId('6231b28691e2bcb857babb56'),
@@ -63,6 +65,7 @@ export default class User extends Service {
         }
       }
     } catch (err) {
+      console.log(err)
       return ctx.helper.json(JSON.stringify(err));
     }
   }

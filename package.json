@@ -27,7 +27,8 @@
     "egg-cors": "^2.2.3",
     "egg-jwt": "^3.1.7",
     "egg-mongoose": "^3.3.1",
-    "egg-scripts": "^2.6.0"
+    "egg-scripts": "^2.6.0",
+    "nodemailer": "^6.8.0"
   },
   "devDependencies": {
     "@types/mocha": "^2.2.40",

@@ -19,6 +19,9 @@ module.exports = (app) => {
   // 登录
   router.post('/login', jsonp, controller.user.login);
 
+  // 发送邮件
+  router.get('/testSendMail', controller.mail.testSendMail);
+
   // 根据已有经验获取食物
   router.post('/getMyWifeFood', jwtVerify, controller.mywife.getMyWifeFood);
   // 增加食物
