@@ -5,7 +5,7 @@ import 'egg';
 import ExportArticle from '../../../app/controller/article';
 import ExportHome from '../../../app/controller/home';
 import ExportMail = require('../../../app/controller/mail');
-import ExportMywife from '../../../app/controller/mywife';
+import ExportMywife = require('../../../app/controller/mywife');
 import ExportUser = require('../../../app/controller/user');
 
 declare module 'egg' {

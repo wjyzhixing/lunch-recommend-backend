@@ -3,16 +3,16 @@ module.exports = (app) => {
   const jsonp = app.jsonp();
   console.log(middleware.jwtVerify,'middlewaremiddleware')
   const jwtVerify = middleware.jwtVerify(app.config.jwt)
-  router.get('/getExample', controller.home.getExample);
-  router.post('/postExample', controller.home.postExample);
-  router.put('/putExample', controller.home.putExample);
-  router.head('/headExample', controller.home.headExample);
-  router.delete('/deleteExample', controller.home.deleteExample);
+  // router.get('/getExample', controller.home.getExample);
+  // router.post('/postExample', controller.home.postExample);
+  // router.put('/putExample', controller.home.putExample);
+  // router.head('/headExample', controller.home.headExample);
+  // router.delete('/deleteExample', controller.home.deleteExample);
 
-  router.get('/getProjectById', controller.article.index);
-  router.post('/addProject', controller.article.addProject);
-  router.post('/deleteProject', controller.article.deleteProject);
-  router.post('/updateProject', controller.article.updateProject);
+  // router.get('/getProjectById', controller.article.index);
+  // router.post('/addProject', controller.article.addProject);
+  // router.post('/deleteProject', controller.article.deleteProject);
+  // router.post('/updateProject', controller.article.updateProject);
 
   // 注册
   router.post('/registry', jsonp, controller.user.registry);
