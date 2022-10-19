@@ -1,14 +1,7 @@
 'use strict';
 Object.defineProperty(exports, '__esModule', { value: true });
 const egg_1 = require('egg');
-
-const computedValue = (time, love) => {
-  return Math.pow(2, love) / (1 + time);
-};
-
-const rand = (min, max) => {
-  return Math.floor(Math.random() * (max - min)) + min;
-};
+const { computedValue, rand } = require('../utils');
 
 /**
  * Test Service
