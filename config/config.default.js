@@ -51,7 +51,14 @@ exports.default = (appInfo) => {
             //   },
             // },
         },
-        enableSecurity: false,  // 是否启用授权，默认 false（不启用）。
+        securityDefinitions: {
+            apikey: {
+              type: 'apiKey',
+              name: 'token',//jwt一般是这名字，根据需要调整
+              in: 'header',
+            },
+         },
+        enableSecurity: true,  // 是否启用授权，默认 false（不启用）。
         // enableValidate: true,    // 是否启用参数校验，默认 true（启用）。
         routerMap: true,    // 是否启用自动生成路由，默认 true (启用)。
         enable: true,   // 默认 true (启用)。

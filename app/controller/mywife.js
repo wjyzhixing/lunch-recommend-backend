@@ -10,6 +10,7 @@ class MyWifeController extends Controller {
    * @description 获取食物列表
    * @router post /getMyWifeFood
    * @Request body getMyWifeFood
+   * @apikey
    * @response 200 JsonBody 返回结果。
    */
   async getMyWifeFood() {
@@ -27,6 +28,7 @@ class MyWifeController extends Controller {
    * @description 增加食物列表
    * @router post /addMyWifeFood
    * @Request body addMyWifeFood
+   * @apikey
    * @response 200 JsonBody 返回结果。
    */
   async addMyWifeFood() {
@@ -47,6 +49,7 @@ class MyWifeController extends Controller {
    * @description 删除食物列表
    * @router post /deleteMyWifeFood
    * @Request body deleteMyWifeFood
+   * @apikey
    * @response 200 JsonBody 返回结果。
    */
   async deleteMyWifeFood() {
@@ -64,6 +67,7 @@ class MyWifeController extends Controller {
    * @description 更新食物列表
    * @router post /updateMyWifeFood
    * @Request body updateMyWifeFood
+   * @apikey
    * @response 200 JsonBody 返回结果。
    */
   async updateMyWifeFood() {
@@ -84,6 +88,7 @@ class MyWifeController extends Controller {
    * @description 推荐食物列表
    * @router post /recommendMyWifeFood
    * @Request body recommendMyWifeFood
+   * @apikey
    * @response 200 JsonBody 返回结果。
    */
   async recommendMyWifeFood() {
@@ -100,6 +105,7 @@ class MyWifeController extends Controller {
    * @description 获取手动输入随机食物列表
    * @router post /getRandomFoodList
    * @Request body getRandomFoodList
+   * @apikey
    * @response 200 JsonBody 返回结果。
    */
   async getRandomFoodList() {
@@ -114,6 +120,7 @@ class MyWifeController extends Controller {
    * @description 手动修改随机食物列表
    * @router post /updateRandomFoodList
    * @Request body updateRandomFoodList
+   * @apikey
    * @response 200 JsonBody 返回结果。
    */
   async updateRandomFoodList() {
