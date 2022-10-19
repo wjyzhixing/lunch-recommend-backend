@@ -2,6 +2,7 @@
 'use strict';
 Object.defineProperty(exports, '__esModule', { value: true });
 const Service = require('egg').Service;
+const method = require('../utils/index');
 // 引入nodemailer
 const nodemailer = require('nodemailer');
 const user_email = '845064182@qq.com'; // 账号
@@ -18,14 +19,15 @@ const transporter = nodemailer.createTransport({
     pass: auth_code,
   },
 });
+const { computedValue, rand } = method;
 
-const computedValue = (time, love) => {
-  return Math.pow(2, love) / (1 + time);
-};
+// const computedValue = (time, love) => {
+//   return Math.pow(2, love) / (1 + time);
+// };
 
-const rand = (min, max) => {
-  return Math.floor(Math.random() * (max - min)) + min;
-};
+// const rand = (min, max) => {
+//   return Math.floor(Math.random() * (max - min)) + min;
+// };
 
 class ToolService extends Service {
   async sendMail() {

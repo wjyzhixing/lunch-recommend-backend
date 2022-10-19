@@ -6,7 +6,7 @@ const rand = (min, max) => {
   return Math.floor(Math.random() * (max - min)) + min;
 };
 
-exports.default = {
+module.exports = {
   computedValue,
   rand,
 }
