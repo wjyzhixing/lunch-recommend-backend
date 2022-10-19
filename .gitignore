@@ -13,7 +13,7 @@ logs/
 !.autod.conf.js
 
 test/**/*.js
-config/**/*.js
+# config/**/*.js
 # app/**/*.map
 test/**/*.map
 config/**/*.map
