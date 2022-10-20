@@ -16,6 +16,13 @@
 ```
 https://github.com/wjyzhixing/lunch-recommend/
 ```
+### 项目整体架构及技术栈
+
+<img width="494" alt="image" src="https://user-images.githubusercontent.com/36620969/196839781-5fc344cb-b0d6-4966-8461-b4259413a4b6.png">
+
+后端技术栈采用：eggjs + mongodb
+
+中间件涉及： egg-mongoose，egg-cors，egg-jwt，egg-swagger-doc
 
 ## 项目功能
 
@@ -37,3 +44,10 @@ $ npm run dev
 ```bash
 $ npm run start
 ```
+
+## 加入我们！
+本项目希望有更多的小伙伴来加入！共同为实现大家的生活目标而投入！为方便前端人员开发，我配置了后端swagger文档方便前端人员，线上地址暂时为：http://43.143.38.230:7001/swagger-ui.html
+
+<img width="1433" alt="image" src="https://user-images.githubusercontent.com/36620969/196840372-2ee19e49-fe5b-46de-8ada-5ea2400246ba.png">
+
+欢迎大家加入！
