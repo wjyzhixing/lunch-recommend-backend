@@ -28,8 +28,8 @@ exports.default = (appInfo) => {
         dirScanner: './app/controller', // 配置自动扫描的控制器路径。
         // 接口文档的标题，描述或其它。
         apiInfo: {
-            title: 'NAPI',  // 接口文档的标题。
-            description: 'swagger-ui for NAPI document.',   // 接口文档描述。
+            title: '今天吃什么——接口文档',  // 接口文档的标题。
+            description: 'swagger-ui for lunch-recommend.',   // 接口文档描述。
             version: '1.0.0',   // 接口文档版本。
         },
         schemes: ['http', 'https'], // 配置支持的协议。
