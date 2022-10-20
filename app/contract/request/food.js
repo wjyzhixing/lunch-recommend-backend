@@ -25,6 +25,12 @@ module.exports = {
             // maxLength:'36',
             required: false
         },
+        whichTime: {
+            type: 'string',
+            example: '早餐',
+            // maxLength:'36',
+            required: true
+        }
     },
     addMyWifeFood: {
         user: {
@@ -51,6 +57,12 @@ module.exports = {
             // maxLength:'36',
             required: true
         },
+        whichTime: {
+            type: 'string',
+            example: '早餐',
+            // maxLength:'36',
+            required: true
+        }
     },
     deleteMyWifeFood: {
         id: {
@@ -85,6 +97,12 @@ module.exports = {
             // maxLength:'36',
             required: true
         },
+        whichTime: {
+            type: 'string',
+            example: '早餐',
+            // maxLength:'36',
+            required: true
+        }
     },
     recommendMyWifeFood: {
         user: {

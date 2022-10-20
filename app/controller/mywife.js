@@ -20,6 +20,7 @@ class MyWifeController extends Controller {
       food: ctx.request.body?.food || undefined,
       times: ctx.request.body?.times || undefined,
       love: ctx.request.body?.love || undefined,
+      whichTime: ctx.request.body?.whichTime || '全部'
     });
   }
   //   增加食物列表
@@ -38,6 +39,7 @@ class MyWifeController extends Controller {
       times: ctx.request.body?.times || 0,
       love: ctx.request.body?.love || 0,
       user: ctx.request.body?.user || '',
+      whichTime: ctx.request.body?.whichTime || '全部'
     };
     console.log(query);
     const res = await ctx.service.myWife.addMyWifeFood(query);
@@ -77,6 +79,7 @@ class MyWifeController extends Controller {
       times: ctx.request.body?.times,
       love: ctx.request.body?.love,
       id: ctx.request.body?.id,
+      whichTime: ctx.request.body?.whichTime || '全部'
     };
     console.log(query);
     const res = await ctx.service.myWife.updateMyWifeFood(query);

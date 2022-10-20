@@ -2,7 +2,7 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 const egg_1 = require('egg');
 const method = require('../utils/index');
-const { computedValue, rand } = method;
+const { computedValue, rand, judgeTime } = method;
 
 // const computedValue = (time, love) => {
 //   return Math.pow(2, love) / (1 + time);
@@ -66,11 +66,13 @@ class Test extends egg_1.Service {
           user: String(
             values === null || values === void 0 ? void 0 : values.user,
           ),
+          whichTime: String(
+            values === null || values === void 0 ? void 0 : values.whichTime,
+          ),
           // Article为modal/article.js里面命名的名字
           // id: 2,
           // _id: app.mongoose.Types.ObjectId('6231b28691e2bcb857babb56'),
         });
-        console.log(results, '111111');
         return ctx.helper.json(results);
       }
       return ctx.helper.json([], 1, '这个食物门店已存在');
@@ -109,6 +111,7 @@ class Test extends egg_1.Service {
           food: values === null || values === void 0 ? void 0 : values.food,
           times: values === null || values === void 0 ? void 0 : values.times,
           love: values === null || values === void 0 ? void 0 : values.love,
+          whichTime: values === null || values === void 0 ? void 0 : values.whichTime,
         },
       );
       return ctx.helper.json(results);
@@ -124,7 +127,9 @@ class Test extends egg_1.Service {
     try {
       const results = await ctx.model.Food.find({
         user: params === null || params === void 0 ? void 0 : params.user,
+        whichTime: {"$in": judgeTime()}
       });
+      console.log(results,'res')
       const res =
         results === null || results === void 0
           ? void 0

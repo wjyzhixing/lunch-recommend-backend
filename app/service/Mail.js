@@ -19,7 +19,7 @@ const transporter = nodemailer.createTransport({
     pass: auth_code,
   },
 });
-const { computedValue, rand } = method;
+const { computedValue, rand, judgeTime } = method;
 
 // const computedValue = (time, love) => {
 //   return Math.pow(2, love) / (1 + time);
@@ -40,6 +40,7 @@ class ToolService extends Service {
       resultFilt.map(async (it) => {
         const results = await ctx.model.Food.find({
           user: it === null || it === void 0 ? void 0 : it.username,
+          whichTime: {"$in": judgeTime()}
         });
         // console.log(results);
         const res =
