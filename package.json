@@ -28,6 +28,7 @@
     "egg-jwt": "^3.1.7",
     "egg-mongoose": "^3.3.1",
     "egg-scripts": "^2.6.0",
+    "egg-swagger-doc": "^2.3.2",
     "nodemailer": "^6.8.0"
   },
   "devDependencies": {
