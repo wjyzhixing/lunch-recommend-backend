@@ -40,7 +40,7 @@ class ToolService extends Service {
       resultFilt.map(async (it) => {
         const results = await ctx.model.Food.find({
           user: it === null || it === void 0 ? void 0 : it.username,
-          whichTime: {"$in": judgeTime()}
+          whichTime: { $in: judgeTime() },
         });
         // console.log(results);
         const res =
@@ -67,22 +67,6 @@ class ToolService extends Service {
                   ((_a = res[0]) === null || _a === void 0 ? void 0 : _a.value)
                 );
               })) || '鸡腿';
-        console.log({
-          food: resTrue.map((i) => i.food)[
-            rand(
-              0,
-              resTrue === null || resTrue === void 0 ? void 0 : resTrue.length,
-            )
-          ],
-          email: it.email,
-          user: it.username,
-          foodSecond: results.map((i) => i.food)[
-            rand(
-              0,
-              results === null || results === void 0 ? void 0 : results.length,
-            )
-          ],
-        });
         const email = it.email; // 接收者的邮箱
         const subject = '今天吃什么！！'; // 标题
         const html = `<div><h2>工作再忙也要记得吃饭！推荐您今天吃${
