@@ -1,7 +1,7 @@
 {
-  "name": "backend-example",
-  "version": "1.0.0",
-  "description": "",
+  "name": "lunch-command",
+  "version": "1.0.1",
+  "description": "推荐今天吃什么后端代码",
   "private": true,
   "egg": {
     "typescript": true,

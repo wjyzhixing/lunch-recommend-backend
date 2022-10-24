@@ -20,7 +20,7 @@ class MyWifeController extends Controller {
       food: ctx.request.body?.food || undefined,
       times: ctx.request.body?.times || undefined,
       love: ctx.request.body?.love || undefined,
-      whichTime: ctx.request.body?.whichTime || '全部'
+      whichTime: ctx.request.body?.whichTime || undefined,
     });
   }
   //   增加食物列表

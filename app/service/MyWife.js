@@ -29,6 +29,7 @@ class Test extends egg.Service {
         food: params?.food || { $ne: null },
         love: params?.love || { $ne: null },
         times: params?.times || { $ne: null },
+        whichTime: params?.whichTime || { $ne: null },
         // Article为modal/article.js里面命名的名字
         // id: 2,
         // _id: app.mongoose.Types.ObjectId('6231b28691e2bcb857babb56'),
