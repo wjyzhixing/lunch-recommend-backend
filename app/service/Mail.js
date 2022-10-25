@@ -41,6 +41,7 @@ class ToolService extends Service {
         const results = await ctx.model.Food.find({
           user: it === null || it === void 0 ? void 0 : it.username,
           whichTime: { $in: judgeTime() },
+          ifExpensive: {$in: ['贵但可接受', '很便宜']}
         });
         // console.log(results);
         const res =

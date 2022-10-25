@@ -26,6 +26,10 @@ module.exports = (app) => {
       whichTime: {
         type: String,
         required: false,
+      },
+      ifExpensive: {
+        type: String,
+        required: false,
       }
     },
     { versionKey: false },

@@ -133,5 +133,27 @@ module.exports = {
             // maxLength:'36',
             required: true
         },
+    },
+    addTagIfExpensive: {
+        id: {
+            type: 'string',
+            example: 'balabalabala',
+            // maxLength:'10',
+            required: true
+        },
+        ifExpensive: {
+            type: 'string',
+            example: '贵',
+            // maxLength:'36',
+            required: false
+        },
+    },
+    deleteTag: {
+        id: {
+            type: 'string',
+            example: 'balabalabala',
+            // maxLength:'10',
+            required: true
+        },
     }
 };

@@ -36,4 +36,8 @@ module.exports = (app) => {
   router.post('/getRandomFoodList', jwtVerify, controller.mywife.getRandomFoodList);
   // 修改随机食物列表接口
   router.post('/updateRandomFoodList', jwtVerify, controller.mywife.updateRandomFoodList);
+  // 新增标签
+  router.post('/addTagIfExpensive', jwtVerify, controller.mywife.addTagIfExpensive);
+  // 删除标签
+  router.post('/deleteTag', jwtVerify, controller.mywife.deleteTag);  
 };
