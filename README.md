@@ -26,7 +26,7 @@ https://github.com/wjyzhixing/lunch-recommend/
 
 ## 项目功能
 
-<img width="532" alt="Pasted Graphic" src="https://user-images.githubusercontent.com/36620969/197915566-b41a22eb-2e0f-49b8-abe3-de7a10761bbe.png">
+<img width="536" alt="image" src="https://user-images.githubusercontent.com/36620969/197972345-15e3a312-3491-4d73-b542-d7e074625d29.png">
 
 ## 启动与打包
 
