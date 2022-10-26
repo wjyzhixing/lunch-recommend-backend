@@ -22,6 +22,10 @@ module.exports = (app) => {
       user: {
         type: String,
         required: true,
+      },
+      whichTime: {
+        type: String,
+        required: false,
       }
     },
     { versionKey: false },
