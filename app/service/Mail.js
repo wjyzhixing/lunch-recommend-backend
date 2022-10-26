@@ -34,7 +34,7 @@ class ToolService extends Service {
     const { ctx } = this;
     try {
       const results = await ctx.model.User.find({});
-      const resultFilt = results.filter((i) => i.email);
+      const resultFilt = results.filter((i) => i.email && i?.ifEmail !== false);
       //   console.log(resultFilt);
       let rrr = [];
       resultFilt.map(async (it) => {

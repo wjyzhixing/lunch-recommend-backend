@@ -23,7 +23,11 @@ class User extends egg.Service {
           },
           app.config.jwt.secret,
         );
-        return ctx.helper.json({ token: token }, 0, 'success');
+        return ctx.helper.json(
+          { token: token, id: results[0]?._id },
+          0,
+          'success',
+        );
       }
       return ctx.helper.json('登录失败', 1, '登录失败，请检查您的信息');
     } catch (err) {
@@ -60,5 +64,43 @@ class User extends egg.Service {
       return ctx.helper.json(JSON.stringify(err));
     }
   }
+  /**
+   * 查看个人信息
+   */
+  async showUserInfo(params) {
+    const { ctx, app } = this;
+    // console.log(app.mongoose.Types);
+    try {
+      const results = await ctx.model.User.find({
+        _id: app.mongoose.Types.ObjectId(params?.id),
+      });
+      if (results?.length !== 0) {
+        return ctx.helper.json(results[0], 0, 'success');
+      }
+      return ctx.helper.json('查询失败', 1, '查询失败');
+    } catch (err) {
+      return ctx.helper.json(JSON.stringify(err));
+    }
+  }
+    /**
+   * 修改个人信息
+   */
+     async updateUserInfo(params) {
+      const { ctx, app } = this;
+      // console.log(app.mongoose.Types);
+      try {
+          await ctx.model.User.updateOne({
+            _id: app.mongoose.Types.ObjectId(params?.id),
+          }, {
+            // username: params?.username,
+            password: params?.password,
+            email: params?.email,
+            ifEmail: params?.ifEmail
+          });
+          return ctx.helper.json(results);
+      } catch (err) {
+        return ctx.helper.json(JSON.stringify(err));
+      }
+    }
 }
 exports.default = User;

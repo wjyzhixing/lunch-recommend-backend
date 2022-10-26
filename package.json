@@ -1,6 +1,6 @@
 {
-  "name": "lunch-command",
-  "version": "1.0.1",
+  "name": "lunch-command-backend",
+  "version": "1.1.0",
   "description": "推荐今天吃什么后端代码",
   "private": true,
   "egg": {
