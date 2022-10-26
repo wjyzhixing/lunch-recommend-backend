@@ -113,7 +113,7 @@ class Test extends egg.Service {
       const results = await ctx.model.Food.find({
         user: params?.user,
         whichTime: { $in: judgeTime() },
-        ifExpensive: {$in: ['贵但可接受', '很便宜']}
+        ifExpensive: {$in: ['贵但可接受', '很便宜', null]}
       });
       console.log(results, 'res');
       const res = results
