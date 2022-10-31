@@ -30,7 +30,31 @@ module.exports = {
             example: '早餐',
             // maxLength:'36',
             required: true
-        }
+        },
+        pageSize: {
+            type: 'number',
+            example: 10,
+            // maxLength:'36',
+            required: false
+        },
+        pageNumber: {
+            type: 'number',
+            example: 1,
+            // maxLength:'36',
+            required: false
+        },
+        sort: {
+            type: 'number',
+            example: 1,
+            // maxLength:'36',
+            required: false
+        },
+        sortValue: {
+            type: 'string',
+            example: 'times',
+            // maxLength:'36',
+            required: false
+        },
     },
     addMyWifeFood: {
         user: {

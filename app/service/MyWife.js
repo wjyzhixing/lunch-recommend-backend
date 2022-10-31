@@ -24,6 +24,7 @@ class Test extends egg.Service {
     // console.log(app.mongoose.Types);
     // const token = ctx.request.header.authorization;
     try {
+      const sortObj = params?.sortValue ? {[params?.sortValue] : params?.sort} : {}
       const results = await ctx.model.Food.find({
         user: params?.user,
         food: params?.food || { $ne: null },
@@ -33,9 +34,23 @@ class Test extends egg.Service {
         // Article为modal/article.js里面命名的名字
         // id: 2,
         // _id: app.mongoose.Types.ObjectId('6231b28691e2bcb857babb56'),
-      });
-      return ctx.helper.json(results);
+      }).sort(sortObj)
+        .limit(params?.pageSize)
+        .skip((params?.pageNumber - 1) * params?.pageSize);
+      const total = await ctx.model.Food.find({
+        user: params?.user,
+        food: params?.food || { $ne: null },
+        love: params?.love || { $ne: null },
+        times: params?.times || { $ne: null },
+        whichTime: params?.whichTime || { $ne: null },
+        // Article为modal/article.js里面命名的名字
+        // id: 2,
+        // _id: app.mongoose.Types.ObjectId('6231b28691e2bcb857babb56'),
+      }).count();
+      console.log(total);
+      return ctx.helper.json({ pageSize: params?.pageSize, pageNumber: params?.pageNumber, total, data: results });
     } catch (err) {
+      console.log(err);
       ctx.body = ctx.helper.json(JSON.stringify(err));
     }
   }
@@ -113,7 +128,7 @@ class Test extends egg.Service {
       const results = await ctx.model.Food.find({
         user: params?.user,
         whichTime: { $in: judgeTime() },
-        ifExpensive: {$in: ['贵但可接受', '很便宜', null]}
+        ifExpensive: { $in: ['贵但可接受', '很便宜', null] },
       });
       console.log(results, 'res');
       const res = results
@@ -215,10 +230,10 @@ class Test extends egg.Service {
           ifExpensive: undefined,
         },
       );
-      console.log(results,1)
+      console.log(results, 1);
       return ctx.helper.json(results);
     } catch (err) {
-      console.log(err,2)
+      console.log(err, 2);
       ctx.body = ctx.helper.json(JSON.stringify(err));
     }
   }

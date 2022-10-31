@@ -57,7 +57,7 @@ class UserController extends Controller {
     ctx.body = await ctx.service.user.showUserInfo(params);
   }
   // 修改用户信息
-  /**  （
+  /**  
    * @summary 修改用户信息
    * @description 修改用户信息
    * @router post /updateUserInfo

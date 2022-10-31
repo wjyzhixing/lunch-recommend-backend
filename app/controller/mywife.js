@@ -21,6 +21,10 @@ class MyWifeController extends Controller {
       times: ctx.request.body?.times || undefined,
       love: ctx.request.body?.love || undefined,
       whichTime: ctx.request.body?.whichTime || undefined,
+      pageSize: ctx.request.body?.pageSize || 10,
+      pageNumber: ctx.request.body?.pageNumber || 1,
+      sort: ctx.request.body?.sort || undefined,
+      sortValue : ctx.request.body?.sortValue || undefined,
     });
   }
   //   增加食物列表
