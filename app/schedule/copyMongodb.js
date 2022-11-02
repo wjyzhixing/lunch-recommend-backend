@@ -11,13 +11,13 @@ class CopyMongodb extends Subscription {
       type: 'all',
       // 是否禁用
       disable: false,
-      cron: '0 20 17 * * *', //每天的11点30分0秒更新
+      cron: '0 15 18 * * *', //每天的11点30分0秒更新
       // cron: '0 30 11 * * *', //每天的11点30分0秒更新
     };
   }
   // 定时执行的操作
   async subscribe() {
-    await shell.exec('mongodump  --port 27017 -d egg_article -o data/ ', function (code, stdout, stderr) {
+    await shell.exec('sudo mongodump  --port 27017 -d egg_article -o data/ ', function (code, stdout, stderr) {
       console.log('Exit code:', code);
       console.log('Program output:', stdout);
       console.log('Program stderr:', stderr);
