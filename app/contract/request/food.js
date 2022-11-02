@@ -111,6 +111,16 @@ module.exports = {
             // maxLength:'10',
             required: true
         },
+        rule: {
+            type: 'string',
+            example: `
+            computedValue = (time, love) => {
+                return (Math.pow(2, love) / (1 + time));
+              })
+            `,
+            // maxLength:'10',
+            required: false
+        }
     },
     getRandomFoodList: {
         user: {

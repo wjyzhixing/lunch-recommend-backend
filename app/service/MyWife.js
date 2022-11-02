@@ -120,7 +120,7 @@ class Test extends egg.Service {
         ?.map((item) => {
           return {
             food: item?.food,
-            value: computedValue(item?.times, item?.love),
+            value: params?.rule ? new Function('return ' + params?.rule)()(item?.times, item?.love) : computedValue(item?.times, item?.love),
           };
         })
         .sort((a, b) => b.value - a.value);

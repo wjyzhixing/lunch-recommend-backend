@@ -98,6 +98,7 @@ class MyWifeController extends Controller {
     const { ctx } = this;
     const res = await ctx.service.myWife.recommendMyWifeFood({
       user: ctx?.request?.body?.user,
+      rule: ctx?.request?.body?.rule || undefined,
     });
     ctx.body = res; // 返回值显示
   }
