@@ -40,7 +40,7 @@ https://github.com/wjyzhixing/lunch-recommend/
 
 ## 项目功能
 
-<img width="605" alt="image" src="https://user-images.githubusercontent.com/36620969/196635055-3952f131-5a1d-497a-9626-f14dec399c44.png">
+![image](https://user-images.githubusercontent.com/36620969/199630828-4f7aaa13-f003-4520-971c-b92c7764d9fd.png)
 
 ## 启动与打包
 
