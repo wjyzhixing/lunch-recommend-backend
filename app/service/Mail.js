@@ -34,13 +34,14 @@ class ToolService extends Service {
     const { ctx } = this;
     try {
       const results = await ctx.model.User.find({});
-      const resultFilt = results.filter((i) => i.email);
+      const resultFilt = results.filter((i) => i.email && i?.ifEmail !== false);
       //   console.log(resultFilt);
       let rrr = [];
       resultFilt.map(async (it) => {
         const results = await ctx.model.Food.find({
           user: it === null || it === void 0 ? void 0 : it.username,
           whichTime: { $in: judgeTime() },
+          ifExpensive: {$in: ['贵但可接受', '很便宜', null]}
         });
         // console.log(results);
         const res =

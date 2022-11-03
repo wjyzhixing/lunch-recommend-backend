@@ -111,6 +111,16 @@ module.exports = {
             // maxLength:'10',
             required: true
         },
+        rule: {
+            type: 'string',
+            example: `
+            computedValue = (time, love) => {
+                return (Math.pow(2, love) / (1 + time));
+              })
+            `,
+            // maxLength:'10',
+            required: false
+        }
     },
     getRandomFoodList: {
         user: {
@@ -131,6 +141,28 @@ module.exports = {
             type: 'string',
             example: '食物',
             // maxLength:'36',
+            required: true
+        },
+    },
+    addTagIfExpensive: {
+        id: {
+            type: 'string',
+            example: 'balabalabala',
+            // maxLength:'10',
+            required: true
+        },
+        ifExpensive: {
+            type: 'string',
+            example: '贵',
+            // maxLength:'36',
+            required: false
+        },
+    },
+    deleteTag: {
+        id: {
+            type: 'string',
+            example: 'balabalabala',
+            // maxLength:'10',
             required: true
         },
     }

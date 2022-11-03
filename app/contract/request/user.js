@@ -31,7 +31,41 @@ module.exports = {
             type: 'string',
             example: '邮箱地址',
             // maxLength:'10',
+            required: false
+        },
+    },
+    showUserInfo: {
+        id: {
+            type: 'string',
+            example: 'balabalabala',
+            // maxLength:'10',
             required: true
+        },
+    },
+    updateUserInfo: {
+        id: {
+            type: 'string',
+            example: 'balabalabala',
+            // maxLength:'10',
+            required: true
+        },
+        password: {
+            type: 'string',
+            example: '密码',
+            // maxLength:'36',
+            required: true
+        },
+        username: {
+            type: 'string',
+            example: '姓名',
+            // maxLength:'10',
+            required: true
+        },
+        email: {
+            type: 'string',
+            example: '邮箱地址',
+            // maxLength:'10',
+            required: false
         },
     }
 };

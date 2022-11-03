@@ -1,6 +1,6 @@
 {
-  "name": "lunch-command",
-  "version": "1.0.1",
+  "name": "lunch-command-backend",
+  "version": "1.1.0",
   "description": "推荐今天吃什么后端代码",
   "private": true,
   "egg": {
@@ -29,7 +29,8 @@
     "egg-mongoose": "^3.3.1",
     "egg-scripts": "^2.6.0",
     "egg-swagger-doc": "^2.3.2",
-    "nodemailer": "^6.8.0"
+    "nodemailer": "^6.8.0",
+    "shelljs": "^0.8.5"
   },
   "devDependencies": {
     "@types/mocha": "^2.2.40",
