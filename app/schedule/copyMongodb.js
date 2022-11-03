@@ -17,7 +17,7 @@ class CopyMongodb extends Subscription {
   }
   // 定时执行的操作
   async subscribe() {
-    await shell.exec('mongodump  --port 27017 -d egg_article -o data/ ', function (code, stdout, stderr) {
+    await shell.exec('sudo mongodump  --port 27017 -d egg_article -o data/ ', function (code, stdout, stderr) {
       console.log('Exit code:', code);
       console.log('Program output:', stdout);
       console.log('Program stderr:', stderr);
