@@ -18,6 +18,10 @@ module.exports = (app) => {
       email: {
         type: String,
         required: false,
+      },
+      ifEmail: {
+        type: Boolean,
+        required: false,
       }
     },
     { versionKey: false },

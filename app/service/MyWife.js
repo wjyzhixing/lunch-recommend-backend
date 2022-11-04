@@ -113,13 +113,14 @@ class Test extends egg.Service {
       const results = await ctx.model.Food.find({
         user: params?.user,
         whichTime: { $in: judgeTime() },
+        ifExpensive: {$in: ['贵但可接受', '很便宜', null]}
       });
       console.log(results, 'res');
       const res = results
         ?.map((item) => {
           return {
             food: item?.food,
-            value: computedValue(item?.times, item?.love),
+            value: params?.rule ? new Function('return ' + params?.rule)()(item?.times, item?.love) : computedValue(item?.times, item?.love),
           };
         })
         .sort((a, b) => b.value - a.value);
@@ -178,6 +179,46 @@ class Test extends egg.Service {
         return ctx.helper.json(results);
       }
     } catch (err) {
+      ctx.body = ctx.helper.json(JSON.stringify(err));
+    }
+  }
+  /**
+   * 食物打标签
+   */
+  async addTagIfExpensive(values) {
+    const { ctx, app } = this;
+    try {
+      const results = await ctx.model.Food.updateOne(
+        {
+          _id: app.mongoose.Types.ObjectId(values?.id),
+        },
+        {
+          ifExpensive: values?.ifExpensive,
+        },
+      );
+      return ctx.helper.json(results);
+    } catch (err) {
+      ctx.body = ctx.helper.json(JSON.stringify(err));
+    }
+  }
+  /**
+   * 删除标签
+   */
+  async deleteTag(values) {
+    const { ctx, app } = this;
+    try {
+      const results = await ctx.model.Food.updateOne(
+        {
+          _id: app.mongoose.Types.ObjectId(values?.id),
+        },
+        {
+          ifExpensive: undefined,
+        },
+      );
+      console.log(results,1)
+      return ctx.helper.json(results);
+    } catch (err) {
+      console.log(err,2)
       ctx.body = ctx.helper.json(JSON.stringify(err));
     }
   }

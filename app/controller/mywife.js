@@ -39,7 +39,7 @@ class MyWifeController extends Controller {
       times: ctx.request.body?.times || 0,
       love: ctx.request.body?.love || 0,
       user: ctx.request.body?.user || '',
-      whichTime: ctx.request.body?.whichTime || '全部'
+      whichTime: ctx.request.body?.whichTime || '全部',
     };
     console.log(query);
     const res = await ctx.service.myWife.addMyWifeFood(query);
@@ -79,7 +79,7 @@ class MyWifeController extends Controller {
       times: ctx.request.body?.times,
       love: ctx.request.body?.love,
       id: ctx.request.body?.id,
-      whichTime: ctx.request.body?.whichTime || '全部'
+      whichTime: ctx.request.body?.whichTime || '全部',
     };
     console.log(query);
     const res = await ctx.service.myWife.updateMyWifeFood(query);
@@ -98,6 +98,7 @@ class MyWifeController extends Controller {
     const { ctx } = this;
     const res = await ctx.service.myWife.recommendMyWifeFood({
       user: ctx?.request?.body?.user,
+      rule: ctx?.request?.body?.rule || undefined,
     });
     ctx.body = res; // 返回值显示
   }
@@ -135,6 +136,42 @@ class MyWifeController extends Controller {
     };
     console.log(query);
     const res = await ctx.service.myWife.updateRandomFoodList(query);
+    ctx.body = res; // 返回值显示
+  }
+
+  /**
+   * @summary 对食物打标签是否昂贵
+   * @description 对食物打标签是否昂贵
+   * @router post /addTagIfExpensive
+   * @Request body addTagIfExpensive
+   * @apikey
+   * @response 200 JsonBody 返回结果。
+   */
+  async addTagIfExpensive() {
+    const { ctx } = this;
+    const query = {
+      ifExpensive: ctx.request.body?.ifExpensive,
+      id: ctx.request.body?.id,
+    };
+    console.log(query);
+    const res = await ctx.service.myWife.addTagIfExpensive(query);
+    ctx.body = res; // 返回值显示
+  }
+  /**
+   * @summary 对食物删除标签
+   * @description 对食物删除标签
+   * @router post /deleteTag
+   * @Request body deleteTag
+   * @apikey
+   * @response 200 JsonBody 返回结果。
+   */
+  async deleteTag() {
+    const { ctx } = this;
+    const query = {
+      id: ctx.request.body?.id,
+    };
+    console.log(query);
+    const res = await ctx.service.myWife.deleteTag(query);
     ctx.body = res; // 返回值显示
   }
 }
