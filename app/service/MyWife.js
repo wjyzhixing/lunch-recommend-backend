@@ -48,6 +48,7 @@ class Test extends egg.Service {
     try {
       const findResults = await ctx.model.Food.find({
         food: values?.food,
+        user: values?.user
       });
       if (findResults?.length === 0) {
         const results = await ctx.model.Food.create({
