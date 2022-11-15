@@ -8,7 +8,7 @@ class CopyMongodb extends Subscription {
       // 执行时间间隔
       // interval: '50s',
       // 指定所有的worker（进程）都需要执行
-      type: 'all',
+      type: 'worker',
       // 是否禁用
       disable: false,
       cron: '0 00 23 * * *', //每天的23点00分0秒更新
