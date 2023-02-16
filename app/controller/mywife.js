@@ -18,7 +18,7 @@ class MyWifeController extends Controller {
     ctx.body = await ctx.service.myWife.getMyWifeFood({
       user: ctx?.request?.body?.username,
       food: ctx.request.body?.food || undefined,
-      times: ctx.request.body?.times || undefined,
+      times: ctx.request.body?.times ?? undefined,
       love: ctx.request.body?.love || undefined,
       whichTime: ctx.request.body?.whichTime || undefined,
     });
