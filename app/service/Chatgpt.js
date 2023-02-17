@@ -3,7 +3,7 @@ Object.defineProperty(exports, '__esModule', { value: true });
 const egg = require('egg');
 const { Configuration, OpenAIApi } = require('openai');
 const configuration = new Configuration({
-  apiKey: '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',
+  apiKey: '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',
 });
 const openai = new OpenAIApi(configuration);
 
