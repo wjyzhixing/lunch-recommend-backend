@@ -17,10 +17,13 @@ exports.default = (appInfo) => {
     };
     config.mongoose = {
         client: {
-            url: 'mongodb://127.0.0.1:27017/egg_article', // 你的数据库地址，egg_article是你数据库得名字
+            url: 'mongodb://0.0.0.0:27017/egg_article',
             options: {
-              useNewUrlParser: true,
-              useUnifiedTopology:true
+                authSource: 'admin',
+                useNewUrlParser: true,
+                useUnifiedTopology: true,
+                user: 'root',
+                pass: 'w(9%0M1^OMysu(1*7)nb'
             },
         },
     };
