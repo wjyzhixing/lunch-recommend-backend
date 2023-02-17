@@ -68,4 +68,6 @@ module.exports = (app) => {
   );
   // 删除标签
   router.post('/deleteTag', jwtVerify, controller.mywife.deleteTag);
+  // chatgpt
+  router.post('/chatgpt', jsonp,  controller.chatgpt.chat);
 };
