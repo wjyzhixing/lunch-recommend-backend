@@ -19,6 +19,7 @@ class ChatController extends Controller {
     const { ctx } = this;
     const params = {
       text: ctx.request.body?.text || '',
+      apiKey: ctx.request.body?.apiKey || ''
     };
     ctx.body = await ctx.service.chatgpt.chat(params);
   }

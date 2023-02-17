@@ -2,10 +2,6 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 const egg = require('egg');
 const { Configuration, OpenAIApi } = require('openai');
-const configuration = new Configuration({
-  apiKey: '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',
-});
-const openai = new OpenAIApi(configuration);
 
 /**
  * Test Service
@@ -16,6 +12,10 @@ class Chatgpt extends egg.Service {
    */
   async chat(params) {
     const { ctx, app } = this;
+    const configuration = new Configuration({
+      apiKey: params?.apiKey,
+    });
+    const openai = new OpenAIApi(configuration);
     try {
       const res = await openai.createCompletion({
         model: 'text-davinci-003',
